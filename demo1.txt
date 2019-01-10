@@ -1,0 +1,20 @@
+DEMO 1
+
+1.1
+- luotu githubiin repo: https://github.com/ThatRick/TIEA345.git
+- repon osoite annettu korppiin
+
+1.2  
+- pi:hin kytkettiin näyttö, näppis ja hiiri
+- valmiiksi asennettu muistikortti sisään ja virrat päälle
+- muutettiin pi:n hostname: jmp-pi ja uusi salasana
+- pi:stä ssh enabloiduksi
+- reboot
+
+1.3
+- pi:llä ja läppärillä yhteys labra-wifiin
+- pi sai osoitteen: 192.168.100.102
+- yhteys läppäriltä pi:hin terminalissa komennolla: ssh pi@192.168.100.102
+- yhteys auki!
+- pi:n päivitys: sudo apt-get update && sudo apt-get dist-upgrade -y 
+- pi:lle gitin kloonaus: git clone https://github.com/ThatRick/TIEA345.git
