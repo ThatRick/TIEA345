@@ -1,0 +1,31 @@
+TIEA 345 Kevät 2019
+
+Demo3
+
+3.1)
+    Temp=23.0*C  Humidity=14.0%
+
+3.2)
+    Googlen nykyinen API-sivu poikkesi jonkin verran ohjeesta, joten pari kertaa piti
+    yrittää ennenkuin oikea service account syntyi.
+    "client_email": "pusher-raspi@tiea345-demo3-jumapolv.iam.gserviceaccount.com"
+    
+    koodit: demo3_DHT.py
+
+3.3)
+    video otettu komennolla: raspivid -t 15000 -w 640 -h 480 -fps 30 -b 1200000 -o pivideo.h264
+    videon url: users.jyu.fi/~jumapolv/TIEA345/pivideo.h264
+    
+3.4)
+    koodit: demo3_kamera.py
+
+3.5)
+    1. crontab -e
+    2. lisätty rivi:
+       0 * * * * python /home/pi/dev/TIEA345/demo3/demo3_capture.py
+
+3.6)
+    1. asennettu apache
+    2. linkitetty kuva-kansio public html kansioon:
+        sudo ln -s /home/pi/dev/img /var/www/html/img
+    3. kuvat näkyvät web-selaimella lähiverkossa
