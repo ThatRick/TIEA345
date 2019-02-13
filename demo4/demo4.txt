@@ -1,0 +1,24 @@
+TIEA345 Kevät 2019
+Markus Polvilampi
+jumapolv@student.jyu.fi
+
+4.1)
+    process_id_file /home/pi/dev/motion/motion.pid
+    logfile /home/pi/dev/motion/motion.log
+    target_dir /home/pi/dev/motion/img
+
+4.2)
+    framerate 2
+    pre_capture 2
+    post_capture 10
+
+4.3)
+    framerate 15
+    pre_capture 0
+    post_capture 150
+    max_movie_time 10
+    output_pictures off
+
+4.4)
+    mask_file /home/pi/dev/motion/mask_center.pgm
+    
