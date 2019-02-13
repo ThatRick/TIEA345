@@ -9,9 +9,6 @@ orb = cv2.ORB_create()
 kp1, desc1 = orb.detectAndCompute(img1, None)
 kp2, desc2 = orb.detectAndCompute(img2, None)
 
-# matcher = cv2.DescriptorMatcher_create(cv2.DESCRIPTOR_MATCHER_BRUTEFORCE_HAMMING)
-# matches = matcher.match(desc1, desc2, None)
-
 # img_kp1 = cv2.drawKeypoints(img1, kp1, None, (255, 0, 0), 4)
 # cv2.imwrite('kp1.png', img_kp1)
 

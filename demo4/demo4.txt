@@ -2,6 +2,8 @@ TIEA345 Kevät 2019
 Markus Polvilampi
 jumapolv@student.jyu.fi
 
+Motion:
+
 4.1)
     process_id_file /home/pi/dev/motion/motion.pid
     logfile /home/pi/dev/motion/motion.log
@@ -21,4 +23,22 @@ jumapolv@student.jyu.fi
 
 4.4)
     mask_file /home/pi/dev/motion/mask_center.pgm
-    
+
+
+OpenCV:
+
+4.5)
+    python:
+    >> import cv2
+    toimii
+
+4.6)
+    koodi: orb.py
+    kuvat: img1, img2 -> matches
+
+4.7)
+    koodi: face.py
+    kuvat: junior.jpg -> face.png
+
+4.8)
+    koodi: cam_face.py
