@@ -15,14 +15,16 @@ void setup_io() {
 int main(void) {
     setup_io();
 
-    digitalWrite(PIN_LED, 1);
-    delay(500);
-    digitalWrite(PIN_LED, 0);
-    delay(500);
-    digitalWrite(PIN_LED, 1);
-    delay(500);
-    digitalWrite(PIN_LED, 0);
-    delay(500);
+    int prevState = digitalRead(PIN_PIR);
+    
+    while(1) {
+        int state = digitalRead(PIN_PIR);
+        if (state != prevState) {
+            prevState = state;
+            digitalWrite(PIN_LED, state);
+        }
+        delay(10);
+    }
 
     return 0;
 }

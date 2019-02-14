@@ -1,3 +1,2 @@
 all:
-	gcc -Wall -o demo51 demo51.c -l wiringPi
-	sudo ./demo51
+	gcc -Wall -o demo52 demo52.c -l wiringPi

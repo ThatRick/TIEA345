@@ -1,0 +1,10 @@
+TIEA345 Kevät 2019
+Markus Polvilampi
+jumapolv@student.jyu.fi
+
+5.1)
+    koodi: demo51.c
+
+5.2)
+    koodi: demo52.c
+    liikennevalot testattu lankulla
