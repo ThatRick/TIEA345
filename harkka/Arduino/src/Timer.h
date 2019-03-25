@@ -1,23 +1,23 @@
-/*
-*   Simple timer class
-*   by Markus Polvilampi
-*/
+
+//  Simple Timer class
+//  tick returns true per given interval (ms). Must be called frequently.
+//  by Markus Polvilampi 2019
+
 class Timer
 {
     unsigned long interval;
-    unsigned long lastUpdate;
+    unsigned long nextTickTime;
 
 public:
     Timer(unsigned long interval, unsigned long millis) {
         this->interval = interval;
-        this->lastUpdate = millis;
+        this->nextTickTime = millis + interval;
     }
 
     bool tick(unsigned long millis) {
-        unsigned long elapsed = millis - lastUpdate;
-        if (elapsed >= interval) {
-            unsigned long overstep = elapsed - interval;
-            lastUpdate = millis - overstep;
+        if (millis >= nextTickTime) {
+            unsigned long overstep = millis - nextTickTime;
+            nextTickTime = millis + interval - overstep;
             return true;
         }
         return false;

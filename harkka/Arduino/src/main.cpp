@@ -34,6 +34,7 @@ AccelStepper stepper(AccelStepper::DRIVER, STEP_OUT, DIR_OUT);
 
 Comm comm(Serial);
 
+
 // Set acceleration (rev/s^2)
 void setAcceleration(float value = acceleration) {
     acceleration = value;
@@ -57,7 +58,7 @@ void setMicroSteps(int steps) {
     digitalWrite(MODE2_OUT, table[index][2]);
 }
 
-// Set speed and micro stepping
+// Set speed (rev/s) and micro stepping
 void setMaxSpeed(float rps) {
     float maxRps = MAX_RATE / MOTOR_STEPS;
     if (rps > maxRps) rps = maxRps;
@@ -74,10 +75,18 @@ void setMaxSpeed(float rps) {
     setAcceleration();
 }
 
+// Set throttle control (0..100%)
 void setThrottle(float value) {
     throttle = value;
     analogWrite(THROTTLE_OUT, 255 * (value / 100.0));
 }
+
+// Enable or disable stepper controller
+void setEnabled(bool state)
+{
+    digitalWrite(ENABLE_OUT, !state);
+}
+
 
 // ================================
 // **********   SETUP   ***********
@@ -101,18 +110,13 @@ void setup()
 }
 
 
-void setEnabled(bool state)
-{
-    digitalWrite(ENABLE_OUT, !state);
-}
-
 // ================================
 // ********   MAIN LOOP   *********
 // ================================
 void loop()
 {
     unsigned long t = micros();
-    bool enableButton = !digitalRead(ENABLE_IN);
+    bool enableButton = !digitalRead(ENABLE_IN); // internal pull-up used; signal reversed
     bool moveButton = !digitalRead(MOVE_IN);
 
     // local position control
@@ -133,6 +137,7 @@ void loop()
     enableButtonPrev = enableButton;
     moveButtonPrev = moveButton;
 
+    // when position is reached, run() returns false and stepper control is disabled
     running = stepper.run();
     if (!running)
         setEnabled(false);

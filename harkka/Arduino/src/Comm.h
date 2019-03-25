@@ -1,3 +1,8 @@
+
+//  Wrapper class for Serial communication.
+//  Parses parameter name and value from serial input.
+//  by Markus Polvilampi 2019
+
 #include <Arduino.h>
 
 class Comm
