@@ -2,6 +2,7 @@ const express = require('express');
 const socketIO = require('socket.io');
 const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline')
+const os = require('os');
 
 const app = express();
 const server = app.listen(8080);
@@ -14,9 +15,13 @@ let throttle = 0;
 app.use(express.static('public'));
 
 // Setup serial connection
-const serialPathMac = '/dev/cu.usbmodem14101';
-const serialPathPi = '/dev/ttyACM0';
-const port = new SerialPort(serialPathPi, {
+const serialPaths = {
+    darwin: '/dev/cu.usbmodem14101',
+    linux: '/dev/ttyACM0'
+};
+const serialPath = serialPaths[ os.platform() ];
+console.log('Opening serial connection at port: ', serialPath);
+const port = new SerialPort(serialPath, {
     baudRate: 9600,
 }, err => {
     if (err) return console.log('Serial open error:', err.message);
