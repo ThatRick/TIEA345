@@ -148,9 +148,11 @@ void loop()
         long value = comm.getValue();
         char param = comm.getParameter();
 
+        // If parameter value given, set parameter to new value.
+        // If only parameter name given, send back current parameter value.
         switch(param)
         {
-            case 'p':
+            case 'p':   // Stepper position setpoint
             case 'P': {
                 if (comm.hasValue()) {
                     // angle (deg) * 10 => absolute steps
@@ -162,29 +164,33 @@ void loop()
                     long pos = floor((stepper.currentPosition() / float(stepsPerRev)) * 3600);
                     comm.sendParam("P:", pos);
                 }
-                break; }
-            case 's':
+                break;
+            }
+            case 's':   // Stepper max speed setpoint
             case 'S': {
                 if (comm.hasValue()) 
                     setMaxSpeed(value * 0.1f);
                 else {
                     comm.sendParam("S:", (stepper.maxSpeed() / stepsPerRev) * 10);
                 }
-                break; }
-            case 'a':
+                break;
+            }
+            case 'a':   // Stepper acceleration setpoint
             case 'A': {
                 if (comm.hasValue())
                     setAcceleration(value * 0.1f);
                 else
                     comm.sendParam("A:", acceleration * 10);
-                break; }
-            case 't':
+                break;
+            }
+            case 't':   // Throttle setpoint
             case 'T': {
                 if (comm.hasValue())
                     setThrottle(value * 0.1f);
                 else
                     comm.sendParam("T:", throttle * 10);
-                break; }
+                break;
+            }
         }
     }
 }
