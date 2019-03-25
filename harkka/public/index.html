@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control page</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2 id='header'></h2>
+
+    <p>Serial monitor</p>
+    <div id="serial_container">
+        <div id="serial_log">
+            Test line 1 <br/>
+            Test line 2 <br/>
+            Test line 3 <br/>
+            Test line 4 <br/>
+        </div>
+    </div>
+    <div>
+        <form id='form_command'>
+            <input type='text' id='input_command' autocomplete="off">
+        </form>
+    </div>
+
+    <div>
+        <p>Position: <label id='label_pos' for='slider_pos'>value</label></p>
+        <input type='range' id='slider_pos' min='-180' max='180' step='0.1' value='0'>
+    </div>
+
+    <div>
+        <p>Throttle: <label id='label_throttle' for='slider_throttle'>value</label></p>
+        <input type='range' id='slider_throttle' max='100'>
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+body {
+    background-color: lightgrey;
+    margin: 20px;
+    font-family: monospace;
+    font-size: 1.5em;
+}
+
+div {
+    width: 420px;
+    max-width: 95%;
+    box-sizing: border-box;
+}
+
+p {
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    line-height: 2em;
+    height: 2em;
+    font-size: 1em;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+#serial_container {
+    height: 200px;
+    max-height: 200px;
+    line-height: 200px;
+    border: 1px solid dimgrey;
+    overflow-y: scroll;
+    overflow-x: auto;
+    background-color: white;
+}
+
+#serial_log {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 100%;
+    line-height: 1;
+    font-family: monospace;
+    color: blue;
+    padding: 4px;
+}
+
+.commandLine {
+    color: black;
+}
