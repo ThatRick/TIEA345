@@ -72,11 +72,10 @@ form.addEventListener('submit', e => {
 });
 
 // Receive new serial data line
-socket.on('monitor', line => {
-    addLogLine(line);
-})
+socket.on('monitor', line => addLogLine(line));
 
 function addLogLine(line) {
     log.insertAdjacentHTML('beforeend', line + '<br/>');
+    // scroll to bottom
     box.scrollTop = box.scrollHeight;
 }
